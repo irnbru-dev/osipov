@@ -1,0 +1,53 @@
+.promo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  .price {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    font-family: @roboto;
+    font-weight: 700;
+
+    &-old {
+      color: @gray-light;
+      font-size: 60px;
+      text-decoration: line-through;
+    }
+
+    &-new {
+      font-size: 96px;
+      color: @pink;
+    }
+  }
+
+  &-txt {
+    margin-left: 100px;
+  }
+
+  &-txt-main {
+    color: @pink;
+    font-family:@geometria;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &-list {
+    font-family: @geometria;
+    font-size: 24px;
+    padding-left: 0;
+    list-style: none;
+    color: @gray-text;
+
+    & > li:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__btn {
+    margin: 0 auto;
+  }
+}
