@@ -4,8 +4,23 @@
   justify-content: center;
   color: @gray;
   font-size: 20px;
+  font-weight: 500;
   text-transform: uppercase;
   padding: 10px 15px;
   border: 2px solid @pink;
   background: @white;
+  transition: background .3s ease-in-out, box-shadow .3s ease-in-out;
+  outline: none;
+
+  &:hover {
+    background: @pink;
+    box-shadow: 2px 2px 40px 0 rgba(0,0,0,0.1);
+  }
+
+  &--white {
+    &:hover {
+      background: #292929;
+      color: @white;
+    }
+  }
 }

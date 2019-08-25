@@ -10,36 +10,61 @@
     box-shadow: 2px 2px 40px 0 rgba(0, 0, 0, 0.1);
     background-color: @white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    overflow: hidden;
+
+    @media @view-desktop {
+      flex-direction: row;
+    }
   }
 
   &__info {
     padding: 40px;
+
+    @media @view-desktop {
+      width: 30%;
+    }
   }
 
   &__row {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     margin-bottom: 30px;
+
+    &:hover {
+      text-decoration: none;
+      color: @gray;
+    }
   }
 
   &__icon {
-    width: 40px;
-    height: 25px;
+    width: 25px;
+    height: 27px;
     flex-shrink: 0;
     margin-top: 5px;
-    margin-right: 10px;
-    background: @gray-light;
+    margin-right: 15px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
 
   &__text {
     font-size: 20px;
     font-weight: 500;
+    color: @gray;
   }
 
   .map {
-    width: 70%;
     background: @gray-text;
+    height: 300px;
+
+    @media @view-desktop {
+      width: 70%;
+      height: auto;
+    }
   }
 }

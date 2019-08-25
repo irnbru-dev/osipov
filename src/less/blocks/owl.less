@@ -1,0 +1,32 @@
+.owl {
+
+  &-dots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: -200px;
+  }
+
+  &-dot {
+    width: 158px;
+    height: 10px;
+    border-radius: 10px;
+    background: @gray-light!important;
+    margin-right: 20px;
+    transition: background .3s ease-in-out;
+    outline: none!important;
+
+    &:hover {
+      background: #a3a09f!important;
+    }
+
+    &.active {
+      background: #a3a09f!important;
+    }
+  }
+}

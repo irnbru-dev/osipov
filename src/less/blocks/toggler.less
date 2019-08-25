@@ -18,6 +18,15 @@
     text-align: center;
     background-color: transparent;
     transition: background-color .3s ease-in-out;
+    font-size: 12px;
+
+    @media @view-tablet {
+      font-size: 14px;
+    }
+
+    @media @view-desktop {
+      font-size: 16px;
+    }
 
     &.active {
       background-color: @gray;
@@ -31,8 +40,13 @@
       border-radius: 0 20px 0 0;
     }
 
+    &:hover {
+      text-decoration: none;
+      color: @gray-text;
+    }
+
     &:not(.active):hover {
-      background-color: rgba(41,41,41,0.8);
+      background-color: rgba(41, 41, 41, 0.8);
       cursor: pointer;
     }
   }

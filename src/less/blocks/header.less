@@ -9,12 +9,33 @@
     flex-direction: row;
     justify-content: space-between;
     padding-top: 40px;
-    color: @gray-text;
+    color: #e6e3e2;
   }
 
-  &-logo {
-    height: 130px;
-    width: 80px;
+  .logo {
+    width: 120px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .socials {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > li:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
   }
 
 }

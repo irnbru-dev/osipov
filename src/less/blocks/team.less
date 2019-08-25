@@ -13,21 +13,30 @@
     color: @white;
     text-transform: uppercase;
     text-align: center;
+    margin-bottom: 25px;
+
+    @media @view-desktop {
+      margin-bottom: 0;
+    }
   }
 
   &__img {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background-color: @gray-text;
     margin: 0 auto;
     display: flex;
+    background-color: @gray-text;
     align-items: center;
     justify-content: center;
-    transition: background-color .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+    position: relative;
 
     img {
       transition: transform .3s ease-in-out;
+      width: 100%;
+      height: auto;
     }
 
     .insta-icon {
@@ -36,10 +45,27 @@
 
     &:hover {
       cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.45);
+
+      &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.45);
+        z-index: 1;
+      }
 
       .insta-icon {
         display: flex;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 41%;
+        top: 38%;
+        z-index: 2;
+        background: url(../../build/img/svg/instagram.svg) no-repeat;
       }
 
       img {

@@ -1,0 +1,39 @@
+.modal {
+
+  &-content {
+    padding: 40px;
+    background-color: @pink;
+    border-radius: 20px;
+    box-shadow: 0 2px 15px 0 rgba(196, 196, 196, 0.25);
+  }
+
+
+  &-title {
+    color: @gray-text;
+    text-transform: uppercase;
+  }
+
+
+  .modal-header, .modal-footer {
+    border: 0!important;
+  }
+
+  .modal-header .close {
+    padding: .5rem 1rem;
+    margin: -1rem -1rem -1rem auto;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: #fff;
+    border-radius: 0 20px 0 20px;
+    opacity: 1;
+
+    span {
+
+    }
+  }
+
+  .modal-footer {
+    justify-content: flex-start;
+  }
+}

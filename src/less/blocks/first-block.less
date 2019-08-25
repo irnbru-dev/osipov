@@ -1,6 +1,29 @@
 .first-block {
+  position: relative;
   padding-top: 230px;
   padding-bottom: 160px;
-  background: rgba(48, 48, 48, 0.87);
   min-height: 100vh;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../../build/img/main-screen-bg.jpg) no-repeat;
+    background-size: cover;
+    z-index: -2;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(48, 48, 48, 0.87);
+    z-index: -1;
+  }
 }

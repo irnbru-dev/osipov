@@ -1,0 +1,29 @@
+input {
+  background-color: @white;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: none;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: @gray;
+  }
+
+  &::-moz-placeholder { /* Firefox */
+    color: @gray;
+  }
+
+  &:-ms-input-placeholder { /* IE */
+    color: @gray;
+  }
+
+  &:-moz-placeholder { /* Firefox */
+    color: @gray;
+  }
+}
