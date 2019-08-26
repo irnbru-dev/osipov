@@ -23,3 +23,6 @@ $(".gallery-owl").owlCarousel({
         }
     }
 });
+
+var wow = new WOW();
+wow.init();
