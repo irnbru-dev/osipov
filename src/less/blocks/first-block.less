@@ -1,8 +1,12 @@
 .first-block {
   position: relative;
-  padding-top: 230px;
+  padding-top: 150px;
   padding-bottom: 160px;
   min-height: 100vh;
+
+  @media @view-desktop {
+    padding-top: 230px;
+  }
 
   &:before {
     position: absolute;

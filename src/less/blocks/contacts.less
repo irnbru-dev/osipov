@@ -19,7 +19,11 @@
   }
 
   &__info {
-    padding: 40px;
+    padding: 30px;
+
+    @media @view-tablet {
+      padding: 40px;
+    }
 
     @media @view-desktop {
       width: 30%;
@@ -53,9 +57,13 @@
 
 
   &__text {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     color: @gray;
+
+    @media @view-desktop {
+      font-size: 20px;
+    }
   }
 
   .map {

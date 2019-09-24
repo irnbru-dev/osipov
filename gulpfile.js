@@ -11,8 +11,8 @@ var gulp = require('gulp'),
 
 var path = {
     dest: {
-        css: 'build/css/',
-        js:  'build/js/'
+        css: 'wp-content/themes/osipov/css/',
+        js:  'wp-content/themes/osipov/js'
     },
     src: {
         less: 'src/less/style.less',
