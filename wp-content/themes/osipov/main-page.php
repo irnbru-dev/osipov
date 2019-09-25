@@ -222,11 +222,51 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="team__item">
                         <a href="" class="team__img">
-                            <img src="/wp-content/themes/osipov/img/team/indu-irina.jpg" alt="">
+                            <img src="/wp-content/themes/osipov/img/team/" alt="">
                             <div class="insta-icon"></div>
                         </a>
                         <div class="team__cat"></div>
                         <div class="team__name"> Инду Ирина</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="team__item">
+                        <a href="" class="team__img">
+                            <img src="/wp-content/themes/osipov/img/team/ermolaeva-evgenia.jpg" alt="">
+                            <div class="insta-icon"></div>
+                        </a>
+                        <div class="team__cat"></div>
+                        <div class="team__name">Ермолаева Евгения</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="team__item">
+                        <a href="" class="team__img">
+                            <img src="/wp-content/themes/osipov/img/team/magerova-anna.jpg" alt="">
+                            <div class="insta-icon"></div>
+                        </a>
+                        <div class="team__cat"></div>
+                        <div class="team__name">Магерова Анна</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="team__item">
+                        <a href="" class="team__img">
+                            <img src="/wp-content/themes/osipov/img/team/romanova-sofia.jpg" alt="">
+                            <div class="insta-icon"></div>
+                        </a>
+                        <div class="team__cat"></div>
+                        <div class="team__name">Романова София</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="team__item">
+                        <a href="" class="team__img">
+                            <img src="/wp-content/themes/osipov/img/team/selezneva-irina.jpg" alt="">
+                            <div class="insta-icon"></div>
+                        </a>
+                        <div class="team__cat"></div>
+                        <div class="team__name">Селезнева Ирина</div>
                     </div>
                 </div>
             </div>

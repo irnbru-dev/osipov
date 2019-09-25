@@ -31,8 +31,12 @@
                     <li><a href="#"><img src="/wp-content/themes/osipov/img/svg/whatsapp.svg" alt=""></a></li>
                 </ul>
                 <div class="address">
-                    <p>Санкт-Петербург, <br>Фурштатская, 18</p>
-<!--                    <p>Санкт-Петербург, <br>Большой пр., 12</p>-->
+                    <?php if (get_field('contacts')['address_1']) { ?>
+                        <p>Санкт-Петербург,<br><?= get_field('contacts')['address_1'] ?></p>
+                    <?php } ?>
+                    <?php if (get_field('contacts')['address_2']) { ?>
+                        <p>Санкт-Петербург,<br><?= get_field('contacts')['address_2'] ?></p>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -88,7 +92,8 @@
         <div class="row">
             <div class="col-md-6 col-lg-3">
                 <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_1.svg" alt=""></div>
+                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_1.svg" alt="">
+                    </div>
                     <div class="advantages__title">2500 или 4500 и  не рублем больше</div>
                     <div class="advantages__txt">Даже если волосы у вас до колен, а ваша идея требует 4 часа кропотливой
                         работы!
@@ -97,7 +102,8 @@
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_2.svg" alt=""></div>
+                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_2.svg" alt="">
+                    </div>
                     <div class="advantages__title">Волосы будут вам  благодарны</div>
                     <div class="advantages__txt">Ведь мы используем исключительно качественные материалы для окрашивания
                         компаний Matrix, Estel и Anthocyanin.
@@ -106,7 +112,8 @@
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_3.svg" alt=""></div>
+                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_3.svg" alt="">
+                    </div>
                     <div class="advantages__title">Наши мастера  владеют техниками:</div>
                     <div class="advantages__txt">Шатуш, омбре, 3-D окрашивание, деграде, балаяж, колорирование, эффект
                         выгоревших на солнце волос, брондирование, калифорнийское мелирование и т.д.
@@ -115,7 +122,8 @@
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_4.svg" alt=""></div>
+                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_4.svg" alt="">
+                    </div>
                     <div class="advantages__title">Стилисты помогут  с выбором</div>
                     <div class="advantages__txt">Если вы до конца не определились с прической, наши стилисты подберут
                         идеально подходящие именно вам форму и цвет волос по авторской методике 12S
@@ -128,18 +136,22 @@
 
 <section class="gallery wow fadeIn">
     <div class="container">
-        <h2>Многие девушки уже воспользовались акцией</h2>
-        <p class="subtitle">Стрижка и окрашивание волос по фиксированной цене</p>
+        <h2><?= get_field('main_gallery')['gallery_title'] ?></h2>
+        <p class="subtitle"><?= get_field('main_gallery')['gallery_subtitle'] ?></p>
 
-        <div class="gallery-owl owl-carousel">
-            <a data-fancybox="gallery" href="/wp-content/themes/osipov/img/hair/FullSizeRender.jpg"><img
-                    src="/wp-content/themes/osipov/img/hair/FullSizeRender.jpg" alt=""></a>
-            <a data-fancybox="gallery" href="/wp-content/themes/osipov/img/hair/FullSizeRender-1.jpg"><img
-                    src="/wp-content/themes/osipov/img/hair/FullSizeRender-1.jpg" alt=""></a>
-            <a data-fancybox="gallery" href="/wp-content/themes/osipov/img/hair/Kbqy90xUbOM.jpg"><img src="/wp-content/themes/osipov/img/hair/Kbqy90xUbOM.jpg"
-                                                                                  alt=""></a>
-            <a data-fancybox="gallery" href="/wp-content/themes/osipov/img/hair/LWD4s4yqDzc.jpg"><img src="/wp-content/themes/osipov/img/hair/LWD4s4yqDzc.jpg"
-                                                                                  alt=""></a>
+
+        <div class="gallery-owl owl-carousel"
+
+<!--           --><?php //if (have_rows('main_gallery')['photos']):
+//
+//            while (have_rows('main_gallery')['photos']) : the_row(); ?>
+<!---->
+<!--                <a data-fancybox="gallery" href="--><?//= the_sub_field('photo'); ?><!--"><img-->
+<!--                        src="--><?//= the_sub_field('photo'); ?><!--" alt=""></a>-->
+<!---->
+<!--            --><?php //endwhile; endif; ?>
+
+
         </div>
     </div>
 </section>
@@ -149,104 +161,63 @@
         <h2>топ стилистов</h2>
 
         <div class="team__box">
-<!--            <nav>-->
-<!--                <div class="nav toggler team__toggler" role="tablist">-->
-<!--                    <a class="toggler__tab active" data-toggle="tab" href="#add-1" role="tab" aria-controls="nav-home"-->
-<!--                       aria-selected="true">Фурштатская 18</a>-->
-<!--                    <a class="toggler__tab" data-toggle="tab" href="#add-2" role="tab" aria-controls="nav-profile"-->
-<!--                       aria-selected="false">Большой пр. 12</a>-->
-<!--                </div>-->
-<!--            </nav>-->
-<!--            <div class="tab-content">-->
-<!--                <div class="tab-pane fade show active" id="add-1" role="tabpanel" aria-labelledby="nav-home-tab">-->
+            <?php if (have_rows('main_team_2') && get_field('contacts')['address_2']): ?>
+            <nav>
+                <div class="nav toggler team__toggler" role="tablist">
+                    <a class="toggler__tab active" data-toggle="tab" href="#add-1" role="tab" aria-controls="nav-home"
+                       aria-selected="true"><?= get_field('contacts')['address_1'] ?></a>
+                    <a class="toggler__tab" data-toggle="tab" href="#add-2" role="tab" aria-controls="nav-profile"
+                       aria-selected="false"><?= get_field('contacts')['address_2'] ?></a>
+                </div>
+            </nav>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="add-1" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                    <?php endif; ?>
                     <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="team__item">
-                                <a href="" class="team__img">
-                                    <img src="/wp-content/themes/osipov/img/team/ugleva-marina.jpg" alt="">
-                                    <div class="insta-icon">
+
+                        <?php if (have_rows('main_team_1')):
+
+                            while (have_rows('main_team_1')) : the_row(); ?>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="team__item">
+                                        <a href="" class="team__img">
+                                            <img src="<?= the_sub_field('img'); ?>" alt="">
+                                            <div class="insta-icon">
+                                            </div>
+                                        </a>
+                                        <div class="team__cat"><?= the_sub_field('category'); ?></div>
+                                        <div class="team__name"><?= the_sub_field('name'); ?></div>
                                     </div>
-                                </a>
-                                <div class="team__cat"></div>
-                                <div class="team__name">Углева Марина</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="team__item">
-                                <a href="" class="team__img">
-                                    <img src="/wp-content/themes/osipov/img/team/sadikov-rinat.jpg" alt="">
-                                    <div class="insta-icon"></div>
-                                </a>
-                                <div class="team__cat"></div>
-                                <div class="team__name">Садыков Ринат</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="team__item">
-                                <a href="" class="team__img">
-                                    <img src="/wp-content/themes/osipov/img/team/kirsanov-denis.jpg" alt="">
-                                    <div class="insta-icon"></div>
-                                </a>
-                                <div class="team__cat"></div>
-                                <div class="team__name">Кирсанов Денис</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="team__item">
-                                <a href="" class="team__img">
-                                    <img src="/wp-content/themes/osipov/img/team/indu-irina.jpg" alt="">
-                                    <div class="insta-icon"></div>
-                                </a>
-                                <div class="team__cat"></div>
-                                <div class="team__name">Инду Ирина</div>
-                            </div>
-                        </div>
+                                </div>
+
+                            <? endwhile; endif; ?>
+
                     </div>
                 </div>
-<!--                <div class="tab-pane fade" id="add-2" role="tabpanel" aria-labelledby="nav-profile-tab">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-6 col-lg-3">-->
-<!--                            <div class="team__item">-->
-<!--                                <a href="" class="team__img">-->
-<!--                                    <img src="/wp-content/themes/osipov/img/team/ugleva-marina.jpg" alt="">-->
-<!--                                    <div class="insta-icon"></div>-->
-<!--                                </a>-->
-<!--                                <div class="team__cat">супер клевый стилист</div>-->
-<!--                                <div class="team__name">Никита Сорокин</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6 col-lg-3">-->
-<!--                            <div class="team__item">-->
-<!--                                <a href="" class="team__img">-->
-<!--                                    <img src="/wp-content/themes/osipov/img/team/sadikov-rinat.jpg" alt="">-->
-<!--                                    <div class="insta-icon"></div>-->
-<!--                                </a>-->
-<!--                                <div class="team__cat">супер клевый стилист</div>-->
-<!--                                <div class="team__name">Никита Сорокин</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6 col-lg-3">-->
-<!--                            <div class="team__item">-->
-<!--                                <a href="" class="team__img">-->
-<!--                                    <img src="/wp-content/themes/osipov/img/team/kirsanov-denis.jpg" alt="">-->
-<!--                                    <div class="insta-icon"></div>-->
-<!--                                </a>-->
-<!--                                <div class="team__cat">супер клевый стилист</div>-->
-<!--                                <div class="team__name">Никита Сорокин</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6 col-lg-3">-->
-<!--                            <div class="team__item">-->
-<!--                                <a href="" class="team__img">-->
-<!--                                    <img src="/wp-content/themes/osipov/img/team/indu-irina.jpg" alt="">-->
-<!--                                    <div class="insta-icon"></div>-->
-<!--                                </a>-->
-<!--                                <div class="team__cat">супер клевый стилист</div>-->
-<!--                                <div class="team__name">Никита Сорокин</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <?php if (have_rows('main_team_2')): ?>
+
+                <div class="tab-pane fade" id="add-2" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="row">
+
+                        <? while (have_rows('main_team_2')) : the_row(); ?>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="team__item">
+                                    <a href="" class="team__img">
+                                        <img src="<?= the_sub_field('img'); ?>" alt="">
+                                        <div class="insta-icon">
+                                        </div>
+                                    </a>
+                                    <div class="team__cat"><?= the_sub_field('category'); ?></div>
+                                    <div class="team__name"><?= the_sub_field('name'); ?></div>
+                                </div>
+                            </div>
+
+                        <? endwhile;
+                        endif; ?>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -259,18 +230,23 @@
         <div class="contacts__box">
             <div class="contacts__info">
                 <h2>Контакты</h2>
-                <a href="#" class="contacts__row">
-                    <div class="contacts__icon">
-                        <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
-                    </div>
-                    <div class="contacts__text">Санкт-Петербург,<br>  Фурштатская, 18</div>
-                </a>
-<!--                <a href="" class="contacts__row">-->
-<!--                    <div class="contacts__icon">-->
-<!--                        <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="contacts__text">Санкт-Петербург,<br> Большой пр., 12</div>-->
-<!--                </a>-->
+                <?php if (get_field('contacts')['address_1']) { ?>
+                    <a href="#" class="contacts__row">
+                        <div class="contacts__icon">
+                            <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
+                        </div>
+
+                        <div class="contacts__text">Санкт-Петербург,<br><?= get_field('contacts')['address_1']; ?></div>
+                    </a>
+                <?php } ?>
+                <?php if (get_field('contacts')['address_2']) { ?>
+                    <a href="#" class="contacts__row">
+                        <div class="contacts__icon">
+                            <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
+                        </div>
+                        <div class="contacts__text">Санкт-Петербург,<br><?= get_field('contacts')['address_2']; ?></div>
+                    </a>
+                <?php } ?>
                 <a href="" class="contacts__row">
                     <div class="contacts__icon">
                         <img src="/wp-content/themes/osipov/img/svg/vk-b.svg" alt="">
@@ -292,7 +268,8 @@
             </div>
 
             <div class="map">
-                <iframe src="https://snazzymaps.com/embed/180114" width="100%" height="600px" style="border:none;"></iframe>
+                <iframe src="https://snazzymaps.com/embed/180114" width="100%" height="600px"
+                        style="border:none;"></iframe>
             </div>
         </div>
 </section>
@@ -316,13 +293,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="">
-                    <input placeholder="Имя">
-                    <input type="tel" placeholder="Телефон">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn--white">Отправить</button>
+                <?php echo do_shortcode('[contact-form-7 id="7" title="Контактная форма 1"]') ?>
             </div>
         </div>
     </div>
