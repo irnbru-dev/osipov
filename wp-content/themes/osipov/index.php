@@ -26,9 +26,9 @@
             </div>
             <div class="contacts">
                 <ul class="socials">
-                    <li><a href="#"><img src="/wp-content/themes/osipov/img/svg/vk.svg" alt=""></a></li>
-                    <li><a href="#"><img src="/wp-content/themes/osipov/img/svg/telegram.svg" alt=""></a></li>
-                    <li><a href="#"><img src="/wp-content/themes/osipov/img/svg/whatsapp.svg" alt=""></a></li>
+                    <li><a href="<?= get_field('contacts')['vk_link'] ?>" target="_blank"><img src="/wp-content/themes/osipov/img/svg/vk.svg" alt=""></a></li>
+                    <li><a href="<?= get_field('contacts')['tg_link'] ?>"  target="_blank"><img src="/wp-content/themes/osipov/img/svg/telegram.svg" alt=""></a></li>
+                    <li><a href="<?= get_field('contacts')['whats_link'] ?>"  target="_blank"><img src="/wp-content/themes/osipov/img/svg/whatsapp.svg" alt=""></a></li>
                 </ul>
                 <div class="address">
                     <?php if (get_field('contacts')['address_1']) { ?>
@@ -43,43 +43,34 @@
     </div>
 </header>
 
-<div class="first-block">
+<?php $bg = get_field('main_background'); ?>
+
+<div class="first-block" style="background-image: url(<?= $bg['url'] ?>)">
     <div class="container">
 
         <div class="promo promo-owl owl-carousel">
 
-            <div class="item">
-                <div class="price">
-                    <div class="price-old">5 000 ₽</div>
-                    <div class="price-new">2 500 ₽</div>
-                </div>
+            <?php if (have_rows('main_slider')):
 
-                <div class="promo-txt">
-                    <p class="promo-txt-main">За стрижку  с окрашиванием  волос любой длины</p>
-                    <ul class="promo-list">
-                        <li>Цена зафиксирована</li>
-                        <li>Проф. материалы уже включены в стоимость</li>
-                        <li>Осуществим любую вашу фантазию</li>
-                    </ul>
-                </div>
-            </div>
+                while (have_rows('main_slider')) : the_row();
+                    while (have_rows('main_offer')) : the_row(); ?>
 
-            <div class="item">
-                <div class="price">
-                    <div class="price-old">12 000 ₽</div>
-                    <div class="price-new">7 000 ₽</div>
-                </div>
+                        <div class="item">
+                            <div class="price">
+                                <div class="price-old"><?= the_sub_field('old_price'); ?></div>
+                                <div class="price-new"><?= the_sub_field('new_price'); ?></div>
+                            </div>
 
-                <div class="promo-txt">
-                    <p class="promo-txt-main">За стрижку  с окрашиванием  волос любой длины</p>
-                    <ul class="promo-list">
-                        <li>Цена зафиксирована</li>
-                        <li>Проф. материалы уже включены в стоимость</li>
-                        <li>Осуществим любую вашу фантазию</li>
-                    </ul>
-                </div>
-            </div>
-
+                            <div class="promo-txt">
+                                <p class="promo-txt-main"><?= the_sub_field('text'); ?></p>
+                                <ul class="promo-list">
+                                    <?= the_sub_field('list'); ?>
+                                </ul>
+                            </div>
+                        </div>
+                    <? endwhile; ?>
+                <? endwhile; ?>
+            <? endif; ?>
         </div>
 
         <button class="btn promo__btn" data-toggle="modal" data-target="#exampleModal">Заявка на звонок</button>
@@ -88,48 +79,22 @@
 
 <section class="advantages wow fadeIn">
     <div class="container">
-        <h2>Все уже включено️, чтобы ваши волосы были превосходными</h2>
+        <h2><?= get_field('main_advantages_title') ?></h2>
         <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_1.svg" alt="">
+
+            <?php if (have_rows('main_advantages')):
+
+                while (have_rows('main_advantages')) : the_row(); ?>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="advantages__item">
+                            <div class="advantages__icon"><img src="<?= the_sub_field('icon'); ?>" alt="">
+                            </div>
+                            <div class="advantages__title"><?= the_sub_field('title'); ?></div>
+                            <div class="advantages__txt"><?= the_sub_field('text'); ?></div>
+                        </div>
                     </div>
-                    <div class="advantages__title">2500 или 4500 и  не рублем больше</div>
-                    <div class="advantages__txt">Даже если волосы у вас до колен, а ваша идея требует 4 часа кропотливой
-                        работы!
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_2.svg" alt="">
-                    </div>
-                    <div class="advantages__title">Волосы будут вам  благодарны</div>
-                    <div class="advantages__txt">Ведь мы используем исключительно качественные материалы для окрашивания
-                        компаний Matrix, Estel и Anthocyanin.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_3.svg" alt="">
-                    </div>
-                    <div class="advantages__title">Наши мастера  владеют техниками:</div>
-                    <div class="advantages__txt">Шатуш, омбре, 3-D окрашивание, деграде, балаяж, колорирование, эффект
-                        выгоревших на солнце волос, брондирование, калифорнийское мелирование и т.д.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="advantages__item">
-                    <div class="advantages__icon"><img src="/wp-content/themes/osipov/img/svg/Ikonka_4.svg" alt="">
-                    </div>
-                    <div class="advantages__title">Стилисты помогут  с выбором</div>
-                    <div class="advantages__txt">Если вы до конца не определились с прической, наши стилисты подберут
-                        идеально подходящие именно вам форму и цвет волос по авторской методике 12S
-                    </div>
-                </div>
-            </div>
+                <? endwhile; ?>
+            <? endif; ?>
         </div>
     </div>
 </section>
@@ -142,15 +107,20 @@
 
         <div class="gallery-owl owl-carousel"
 
-<!--           --><?php //if (have_rows('main_gallery')['photos']):
+<!--            --><?php //if (have_rows('main_gallery')):
 //
-//            while (have_rows('main_gallery')['photos']) : the_row(); ?>
+//                while (have_rows('main_gallery')) : the_row();
+//                    while (have_rows('photos')) : the_row(); ?>
 <!---->
-<!--                <a data-fancybox="gallery" href="--><?//= the_sub_field('photo'); ?><!--"><img-->
-<!--                        src="--><?//= the_sub_field('photo'); ?><!--" alt=""></a>-->
-<!---->
-<!--            --><?php //endwhile; endif; ?>
+<!--                        --><?php //$gallery_img = the_sub_field('photo'); ?>
 
+<!--                        <img src="--><?//= $gallery_img['url'];?><!--">-->
+
+<!--                        <a data-fancybox="gallery" href="--><?//= $gallery_img['url']; ?><!--"><img-->
+<!--                                    src="--><?//= $gallery_img['url']; ?><!--" alt=""></a>-->
+
+<!--                    --><?// endwhile; ?>
+<!--                --><?// endwhile; endif; ?>
 
         </div>
     </div>
@@ -181,7 +151,7 @@
                             while (have_rows('main_team_1')) : the_row(); ?>
                                 <div class="col-md-6 col-lg-3">
                                     <div class="team__item">
-                                        <a href="" class="team__img">
+                                        <a href="<?= the_sub_field('insta'); ?>" class="team__img" target="_blank">
                                             <img src="<?= the_sub_field('img'); ?>" alt="">
                                             <div class="insta-icon">
                                             </div>
@@ -191,33 +161,35 @@
                                     </div>
                                 </div>
 
-                            <? endwhile; endif; ?>
+                            <? endwhile; ?>
+                        <? endif; ?>
 
                     </div>
                 </div>
                 <?php if (have_rows('main_team_2')): ?>
 
-                <div class="tab-pane fade" id="add-2" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <div class="row">
+                    <div class="tab-pane fade" id="add-2" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="row">
 
-                        <? while (have_rows('main_team_2')) : the_row(); ?>
+                            <? while (have_rows('main_team_2')) : the_row(); ?>
 
-                            <div class="col-md-6 col-lg-3">
-                                <div class="team__item">
-                                    <a href="" class="team__img">
-                                        <img src="<?= the_sub_field('img'); ?>" alt="">
-                                        <div class="insta-icon">
-                                        </div>
-                                    </a>
-                                    <div class="team__cat"><?= the_sub_field('category'); ?></div>
-                                    <div class="team__name"><?= the_sub_field('name'); ?></div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="team__item">
+                                        <a href="<?= the_sub_field('insta'); ?>" class="team__img" target="_blank">
+                                            <img src="<?= the_sub_field('img'); ?>" alt="">
+                                            <div class="insta-icon">
+                                            </div>
+                                        </a>
+                                        <div class="team__cat"><?= the_sub_field('category'); ?></div>
+                                        <div class="team__name"><?= the_sub_field('name'); ?></div>
+                                    </div>
                                 </div>
-                            </div>
 
-                        <? endwhile;
-                        endif; ?>
+                            <? endwhile; ?>
+
+                        </div>
                     </div>
-                </div>
+                <? endif; ?>
             </div>
         </div>
 
@@ -231,40 +203,40 @@
             <div class="contacts__info">
                 <h2>Контакты</h2>
                 <?php if (get_field('contacts')['address_1']) { ?>
-                    <a href="#" class="contacts__row">
+                    <div class="contacts__row">
                         <div class="contacts__icon">
                             <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
                         </div>
 
                         <div class="contacts__text">Санкт-Петербург,<br><?= get_field('contacts')['address_1']; ?></div>
-                    </a>
+                    </div>
                 <?php } ?>
                 <?php if (get_field('contacts')['address_2']) { ?>
-                    <a href="#" class="contacts__row">
+                    <div class="contacts__row">
                         <div class="contacts__icon">
                             <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
                         </div>
                         <div class="contacts__text">Санкт-Петербург,<br><?= get_field('contacts')['address_2']; ?></div>
-                    </a>
+                    </div>
                 <?php } ?>
-                <a href="" class="contacts__row">
+                <a href="<?= get_field('contacts')['vk_link'] ?>" class="contacts__row" target="_blank">
                     <div class="contacts__icon">
                         <img src="/wp-content/themes/osipov/img/svg/vk-b.svg" alt="">
                     </div>
-                    <div class="contacts__text">вконтакте</div>
+                    <div class="contacts__text">Вконтакте</div>
                 </a>
-                <a href="" class="contacts__row">
+                <a href="<?= get_field('contacts')['main_instalink'] ?>" class="contacts__row"  target="_blank">
                     <div class="contacts__icon">
                         <img src="/wp-content/themes/osipov/img/svg/insta-b.svg" alt="">
                     </div>
-                    <div class="contacts__text">инстаграм</div>
+                    <div class="contacts__text">Инстаграм</div>
                 </a>
-                <a href="" class="contacts__row">
+                <div class="contacts__row">
                     <div class="contacts__icon">
-                        <img src="/img/svg/watch.svg" alt="">
+                        <img src="/wp-content/themes/osipov/img/svg/watch.svg" alt="">
                     </div>
-                    <div class="contacts__text">10:00 — 22:00</div>
-                </a>
+                    <div class="contacts__text"><?= get_field('contacts')['time'] ?></div>
+                </div>
             </div>
 
             <div class="map">
@@ -277,7 +249,7 @@
 
 <footer class="footer">
     <div class="container">
-        <div class="copyright">©2019 Осипов Имидж студия</div>
+        <div class="copyright">© <?php date('Y') ?> <?= get_field('contacts')['copyright']?></div>
     </div>
 </footer>
 
