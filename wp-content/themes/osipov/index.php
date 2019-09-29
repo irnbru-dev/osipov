@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="/wp-content/themes/osipov/fonts/stylesheet.css">
     <link rel="stylesheet" href="/wp-content/themes/osipov/css/style.min.css">
+    <?php wp_head(); ?>
 </head>
 <body>
 
@@ -107,20 +108,19 @@
 
         <div class="gallery-owl owl-carousel"
 
-<!--            --><?php //if (have_rows('main_gallery')):
-//
-//                while (have_rows('main_gallery')) : the_row();
-//                    while (have_rows('photos')) : the_row(); ?>
-<!---->
-<!--                        --><?php //$gallery_img = the_sub_field('photo'); ?>
+            <?php if (have_rows('main_gallery')):
 
-<!--                        <img src="--><?//= $gallery_img['url'];?><!--">-->
+                while (have_rows('main_gallery')) : the_row();
+                    while (have_rows('photos')) : the_row(); ?>
 
-<!--                        <a data-fancybox="gallery" href="--><?//= $gallery_img['url']; ?><!--"><img-->
-<!--                                    src="--><?//= $gallery_img['url']; ?><!--" alt=""></a>-->
+                       <?php $gallery_img = get_field('photo');?>
 
-<!--                    --><?// endwhile; ?>
-<!--                --><?// endwhile; endif; ?>
+                        <a data-fancybox="gallery" href="<?= the_sub_field('photo'); ;?>">
+                            <img src="<?= the_sub_field('photo'); ;?>" alt="">
+                        </a>
+
+                    <? endwhile; ?>
+                <? endwhile; endif; ?>
 
         </div>
     </div>
@@ -277,5 +277,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script src="/wp-content/themes/osipov/js/script.min.js"></script>
+
+<?php wp_footer(); ?>
 </body>
 </html>

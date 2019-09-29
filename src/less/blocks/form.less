@@ -8,7 +8,7 @@ input {
   box-shadow: none;
 
   &:not(:last-child) {
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
   }
 
   &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -26,4 +26,82 @@ input {
   &:-moz-placeholder { /* Firefox */
     color: @gray;
   }
+}
+
+.wpcf7-form-control.wpcf7-radio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 35px 0 25px 0;
+
+  .wpcf7-list-item {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    input {
+      display: none;
+    }
+
+    .wpcf7-list-item-label {
+      padding: 15px 20px;
+      border: 1px solid #292929;
+      transition: background .2s ease-in-out, color .2s ease-in-out;
+
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+        background: rgba(41,41,41,0.8);
+      }
+    }
+
+    input:checked + .wpcf7-list-item-label {
+      background: #292929;
+      color: #fff;
+    }
+  }
+
+  .wpcf7-list-item-label {
+    flex-shrink: 0;
+    margin-right: 7px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.wpcf7-form-control-wrap {
+  position: relative;
+  margin-bottom: 23px;
+  display: block;
+}
+
+span.wpcf7-not-valid-tip {
+  position: absolute !important;
+  //display: none!important;
+  color: #f00;
+  font-size: 12px !important;
+  font-weight: normal;
+  display: block;
+}
+
+.wpcf7-validation-errors {
+  position: absolute !important;
+  display: none !important;
+}
+
+.wpcf7-not-valid::placeholder {
+  color: red;
+}
+
+.wpcf7-mail-sent-ok {
+  border: none !important;
+  color: @white;
+  position: absolute;
+  margin: -30px -15px;
 }
