@@ -151,7 +151,7 @@
                             while (have_rows('main_team_1')) : the_row(); ?>
                                 <div class="col-md-6 col-lg-3">
                                     <div class="team__item">
-                                        <a href="<?= the_sub_field('insta'); ?>" class="team__img" target="_blank">
+                                        <a href="<?= the_sub_field('instalink'); ?>" class="team__img" target="_blank">
                                             <img src="<?= the_sub_field('img'); ?>" alt="">
                                             <div class="insta-icon">
                                             </div>
@@ -175,7 +175,7 @@
 
                                 <div class="col-md-6 col-lg-3">
                                     <div class="team__item">
-                                        <a href="<?= the_sub_field('insta'); ?>" class="team__img" target="_blank">
+                                        <a href="<?= the_sub_field('instalink'); ?>" class="team__img" target="_blank">
                                             <img src="<?= the_sub_field('img'); ?>" alt="">
                                             <div class="insta-icon">
                                             </div>

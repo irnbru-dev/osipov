@@ -48,9 +48,19 @@ input {
     }
 
     .wpcf7-list-item-label {
-      padding: 15px 20px;
+      padding: 10px;
+      font-size: 11px;
       border: 1px solid #292929;
       transition: background .2s ease-in-out, color .2s ease-in-out;
+
+      @media @view-tablet {
+        padding: 15px 20px;
+        font-size: 14px;
+      }
+
+      @media @view-desktop {
+        font-size: 16px;
+      }
 
       &:hover {
         color: #fff;
