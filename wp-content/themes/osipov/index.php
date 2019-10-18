@@ -27,9 +27,25 @@
             </div>
             <div class="contacts">
                 <ul class="socials">
-                    <li><a href="<?= get_field('contacts')['vk_link'] ?>" target="_blank"><img src="/wp-content/themes/osipov/img/svg/vk.svg" alt=""></a></li>
-                    <li><a href="<?= get_field('contacts')['tg_link'] ?>"  target="_blank"><img src="/wp-content/themes/osipov/img/svg/telegram.svg" alt=""></a></li>
-                    <li><a href="<?= get_field('contacts')['whats_link'] ?>"  target="_blank"><img src="/wp-content/themes/osipov/img/svg/whatsapp.svg" alt=""></a></li>
+                    <?php if (get_field('contacts')['vk_link']) { ?>
+                        <li><a href="<?= get_field('contacts')['vk_link'] ?>" target="_blank"><img
+                                        src="/wp-content/themes/osipov/img/svg/vk.svg" alt=""></a></li>
+                    <?php } ?>
+
+                    <?php if (get_field('contacts')['tg_link']) { ?>
+                        <li><a href="<?= get_field('contacts')['tg_link'] ?>" target="_blank"><img
+                                        src="/wp-content/themes/osipov/img/svg/telegram.svg" alt=""></a></li>
+                    <?php } ?>
+
+                    <?php if (get_field('contacts')['main_instalink']) { ?>
+                        <li><a href="<?= get_field('contacts')['main_instalink'] ?>" target="_blank"><img
+                                        src="/wp-content/themes/osipov/img/svg/instagram.svg" alt=""></a></li>
+                    <?php } ?>
+
+                    <?php if (get_field('contacts')['whats_link']) { ?>
+                        <li><a href="<?= get_field('contacts')['whats_link'] ?>" target="_blank"><img
+                                        src="/wp-content/themes/osipov/img/svg/whatsapp.svg" alt=""></a></li>
+                    <?php } ?>
                 </ul>
                 <div class="address">
                     <?php if (get_field('contacts')['address_1']) { ?>
@@ -39,6 +55,12 @@
                         <p>Санкт-Петербург,<br><?= get_field('contacts')['address_2'] ?></p>
                     <?php } ?>
                 </div>
+
+                <?php if (get_field('contacts')['tel']) { ?>
+                    <div class="tel">
+                        <a href="tel:<?= get_field('contacts')['tel'] ?>"><?= get_field('contacts')['tel'] ?></a>
+                    </div>
+                <? } ?>
             </div>
         </div>
     </div>
@@ -108,27 +130,27 @@
 
         <div class="gallery-owl owl-carousel"
 
-            <?php if (have_rows('main_gallery')):
+        <?php if (have_rows('main_gallery')):
 
-                while (have_rows('main_gallery')) : the_row();
-                    while (have_rows('photos')) : the_row(); ?>
+            while (have_rows('main_gallery')) : the_row();
+                while (have_rows('photos')) : the_row(); ?>
 
-                       <?php $gallery_img = get_field('photo');?>
+                    <?php $gallery_img = get_field('photo'); ?>
 
-                        <a data-fancybox="gallery" href="<?= the_sub_field('photo'); ;?>">
-                            <img src="<?= the_sub_field('photo'); ;?>" alt="">
-                        </a>
+                    <a data-fancybox="gallery" href="<?= the_sub_field('photo');; ?>">
+                        <img src="<?= the_sub_field('photo');; ?>" alt="">
+                    </a>
 
-                    <? endwhile; ?>
-                <? endwhile; endif; ?>
+                <? endwhile; ?>
+            <? endwhile; endif; ?>
 
-        </div>
+    </div>
     </div>
 </section>
 
 <section class="team wow fadeIn">
     <div class="container">
-        <h2>топ стилистов</h2>
+        <h2><?= get_field('team_main-title'); ?></h2>
 
         <div class="team__box">
             <?php if (have_rows('main_team_2') && get_field('contacts')['address_2']): ?>
@@ -219,24 +241,37 @@
                         <div class="contacts__text">Санкт-Петербург,<br><?= get_field('contacts')['address_2']; ?></div>
                     </div>
                 <?php } ?>
-                <a href="<?= get_field('contacts')['vk_link'] ?>" class="contacts__row" target="_blank">
-                    <div class="contacts__icon">
-                        <img src="/wp-content/themes/osipov/img/svg/vk-b.svg" alt="">
-                    </div>
-                    <div class="contacts__text">Вконтакте</div>
-                </a>
-                <a href="<?= get_field('contacts')['main_instalink'] ?>" class="contacts__row"  target="_blank">
-                    <div class="contacts__icon">
-                        <img src="/wp-content/themes/osipov/img/svg/insta-b.svg" alt="">
-                    </div>
-                    <div class="contacts__text">Инстаграм</div>
-                </a>
+                <?php if (get_field('contacts')['vk_link']) { ?>
+                    <a href="<?= get_field('contacts')['vk_link'] ?>" class="contacts__row" target="_blank">
+                        <div class="contacts__icon">
+                            <img src="/wp-content/themes/osipov/img/svg/vk-b.svg" alt="">
+                        </div>
+                        <div class="contacts__text">Вконтакте</div>
+                    </a>
+                <?php } ?>
+                <?php if (get_field('contacts')['main_instalink']) { ?>
+                    <a href="<?= get_field('contacts')['main_instalink'] ?>" class="contacts__row" target="_blank">
+                        <div class="contacts__icon">
+                            <img src="/wp-content/themes/osipov/img/svg/insta-b.svg" alt="">
+                        </div>
+                        <div class="contacts__text">Инстаграм</div>
+                    </a>
+                <?php } ?>
                 <div class="contacts__row">
                     <div class="contacts__icon">
                         <img src="/wp-content/themes/osipov/img/svg/watch.svg" alt="">
                     </div>
                     <div class="contacts__text"><?= get_field('contacts')['time'] ?></div>
                 </div>
+
+                <?php if (get_field('contacts')['tel']) { ?>
+                    <a href="<?= get_field('contacts')['tel'] ?>" class="contacts__row">
+                        <div class="contacts__icon">
+                            <img src="/wp-content/themes/osipov/img/svg/phone-call.svg" alt="">
+                        </div>
+                        <div class="contacts__text"><?= get_field('contacts')['tel'] ?></div>
+                    </a>
+                <?php } ?>
             </div>
 
             <div class="map">
@@ -244,12 +279,13 @@
                         style="border:none;"></iframe>
             </div>
         </div>
+    </div>
 </section>
 
 
 <footer class="footer">
     <div class="container">
-        <div class="copyright">© <?php date('Y') ?> <?= get_field('contacts')['copyright']?></div>
+        <div class="copyright">© <?php date('Y') ?> <?= get_field('contacts')['copyright'] ?></div>
     </div>
 </footer>
 
