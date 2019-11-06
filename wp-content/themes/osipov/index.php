@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="/wp-content/themes/osipov/fonts/stylesheet.css">
-    <link rel="stylesheet" href="/wp-content/themes/osipov/css/style.min.css">
+    <link rel="stylesheet" href="/wp-content/themes/osipov/css/style.min.css?ver=1.0.1">
     <?php wp_head(); ?>
 </head>
 <body>
@@ -49,18 +49,22 @@
                 </ul>
                 <div class="address">
                     <?php if (get_field('contacts')['address_1']) { ?>
-                        <p>Санкт-Петербург,<br><?= get_field('contacts')['address_1'] ?></p>
+                        <p><?= get_field('contacts')['address_1'] ?></p>
                     <?php } ?>
+                    <?php if (get_field('contacts')['tel']) { ?>
+                        <div class="tel">
+                            <a href="tel:<?= get_field('contacts')['tel'] ?>"><?= get_field('contacts')['tel'] ?></a>
+                        </div>
+                    <? } ?>
                     <?php if (get_field('contacts')['address_2']) { ?>
-                        <p>Санкт-Петербург,<br><?= get_field('contacts')['address_2'] ?></p>
+                        <p><?= get_field('contacts')['address_2'] ?></p>
                     <?php } ?>
+                    <?php if (get_field('contacts')['tel_2']) { ?>
+                        <div class="tel">
+                            <a href="tel:<?= get_field('contacts')['tel_2'] ?>"><?= get_field('contacts')['tel_2'] ?></a>
+                        </div>
+                    <? } ?>
                 </div>
-
-                <?php if (get_field('contacts')['tel']) { ?>
-                    <div class="tel">
-                        <a href="tel:<?= get_field('contacts')['tel'] ?>"><?= get_field('contacts')['tel'] ?></a>
-                    </div>
-                <? } ?>
             </div>
         </div>
     </div>
@@ -230,16 +234,26 @@
                             <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
                         </div>
 
-                        <div class="contacts__text">Санкт-Петербург,<br><?= get_field('contacts')['address_1']; ?></div>
+                        <div class="contacts__text"><?= get_field('contacts')['address_1']; ?></div>
                     </div>
+                <?php } ?>
+                <?php if (get_field('contacts')['tel']) { ?>
+                    <a href="tel:<?= get_field('contacts')['tel'] ?>" class="contacts__row">
+                        <div class="contacts__text tel"><?= get_field('contacts')['tel'] ?></div>
+                    </a>
                 <?php } ?>
                 <?php if (get_field('contacts')['address_2']) { ?>
                     <div class="contacts__row">
                         <div class="contacts__icon">
                             <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
                         </div>
-                        <div class="contacts__text">Санкт-Петербург,<br><?= get_field('contacts')['address_2']; ?></div>
+                        <div class="contacts__text"><?= get_field('contacts')['address_2']; ?></div>
                     </div>
+                <?php } ?>
+                <?php if (get_field('contacts')['tel_2']) { ?>
+                    <a href="tel:<?= get_field('contacts')['tel_2'] ?>" class="contacts__row">
+                        <div class="contacts__text tel"><?= get_field('contacts')['tel_2'] ?></div>
+                    </a>
                 <?php } ?>
                 <?php if (get_field('contacts')['vk_link']) { ?>
                     <a href="<?= get_field('contacts')['vk_link'] ?>" class="contacts__row" target="_blank">
@@ -263,15 +277,6 @@
                     </div>
                     <div class="contacts__text"><?= get_field('contacts')['time'] ?></div>
                 </div>
-
-                <?php if (get_field('contacts')['tel']) { ?>
-                    <a href="<?= get_field('contacts')['tel'] ?>" class="contacts__row">
-                        <div class="contacts__icon">
-                            <img src="/wp-content/themes/osipov/img/svg/phone-call.svg" alt="">
-                        </div>
-                        <div class="contacts__text"><?= get_field('contacts')['tel'] ?></div>
-                    </a>
-                <?php } ?>
             </div>
 
             <div class="map">

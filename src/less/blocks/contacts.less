@@ -1,5 +1,5 @@
 .contacts {
-  
+
   h2 {
     text-align: left;
     margin-bottom: 40px;
@@ -55,7 +55,6 @@
     }
   }
 
-
   &__text {
     font-size: 16px;
     font-weight: 500;
@@ -63,6 +62,16 @@
 
     @media @view-desktop {
       font-size: 20px;
+    }
+
+    &.tel {
+      margin-left: 40px;
+      margin-top: -25px;
+      transition: color .15s ease-in-out;
+
+      &:hover {
+        color: #ff4336;
+      }
     }
   }
 
