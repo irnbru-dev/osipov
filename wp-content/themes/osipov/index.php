@@ -49,6 +49,7 @@
                 </ul>
                 <div class="address">
                     <?php if (get_field('contacts')['address_1']) { ?>
+                        <p><?= get_field('contacts')['metro_1'] ?></p>
                         <p><?= get_field('contacts')['address_1'] ?></p>
                     <?php } ?>
                     <?php if (get_field('contacts')['tel']) { ?>
@@ -57,6 +58,7 @@
                         </div>
                     <? } ?>
                     <?php if (get_field('contacts')['address_2']) { ?>
+                        <p><?= get_field('contacts')['metro_2'] ?></p>
                         <p><?= get_field('contacts')['address_2'] ?></p>
                     <?php } ?>
                     <?php if (get_field('contacts')['tel_2']) { ?>
@@ -234,7 +236,10 @@
                             <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
                         </div>
 
-                        <div class="contacts__text"><?= get_field('contacts')['address_1']; ?></div>
+                        <div class="contacts__text">
+                            <span><?= get_field('contacts')['metro_1']; ?></span>
+                            <?= get_field('contacts')['address_1']; ?>
+                        </div>
                     </div>
                 <?php } ?>
                 <?php if (get_field('contacts')['tel']) { ?>
@@ -247,7 +252,10 @@
                         <div class="contacts__icon">
                             <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
                         </div>
-                        <div class="contacts__text"><?= get_field('contacts')['address_2']; ?></div>
+                        <div class="contacts__text">
+                            <span><?= get_field('contacts')['metro_2']; ?></span>
+                            <?= get_field('contacts')['address_2']; ?>
+                        </div>
                     </div>
                 <?php } ?>
                 <?php if (get_field('contacts')['tel_2']) { ?>
