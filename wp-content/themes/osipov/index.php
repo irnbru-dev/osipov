@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="/wp-content/themes/osipov/fonts/stylesheet.css">
-    <link rel="stylesheet" href="/wp-content/themes/osipov/css/style.min.css?ver=1.0.1">
+    <link rel="stylesheet" href="/wp-content/themes/osipov/css/style.min.css?ver=1.0.3">
     <?php wp_head(); ?>
 </head>
 <body>
@@ -49,7 +49,7 @@
                 </ul>
                 <div class="address">
                     <?php if (get_field('contacts')['address_1']) { ?>
-                        <p><?= get_field('contacts')['metro_1'] ?></p>
+                        <p class="contacts__metro"><?= get_field('contacts')['metro_1'] ?></p>
                         <p><?= get_field('contacts')['address_1'] ?></p>
                     <?php } ?>
                     <?php if (get_field('contacts')['tel']) { ?>
@@ -58,7 +58,7 @@
                         </div>
                     <? } ?>
                     <?php if (get_field('contacts')['address_2']) { ?>
-                        <p><?= get_field('contacts')['metro_2'] ?></p>
+                        <p class="contacts__metro"><?= get_field('contacts')['metro_2'] ?></p>
                         <p><?= get_field('contacts')['address_2'] ?></p>
                     <?php } ?>
                     <?php if (get_field('contacts')['tel_2']) { ?>
@@ -237,7 +237,7 @@
                         </div>
 
                         <div class="contacts__text">
-                            <span><?= get_field('contacts')['metro_1']; ?></span>
+                            <p class="contacts__metro"><?= get_field('contacts')['metro_1']; ?></p>
                             <?= get_field('contacts')['address_1']; ?>
                         </div>
                     </div>
@@ -253,7 +253,7 @@
                             <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
                         </div>
                         <div class="contacts__text">
-                            <span><?= get_field('contacts')['metro_2']; ?></span>
+                            <p class="contacts__metro"><?= get_field('contacts')['metro_2']; ?></p>
                             <?= get_field('contacts')['address_2']; ?>
                         </div>
                     </div>
