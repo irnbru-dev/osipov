@@ -225,75 +225,76 @@
     </div>
 </section>
 
-<section class="contacts wow fadeIn">
-    <div class="container">
-        <div class="contacts__box">
-            <div class="contacts__info">
-                <h2>Контакты</h2>
-                <?php if (get_field('contacts')['address_1']) { ?>
-                    <div class="contacts__row">
-                        <div class="contacts__icon">
-                            <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
-                        </div>
-
-                        <div class="contacts__text">
-                            <p class="contacts__metro"><?= get_field('contacts')['metro_1']; ?></p>
-                            <?= get_field('contacts')['address_1']; ?>
-                        </div>
-                    </div>
-                <?php } ?>
-                <?php if (get_field('contacts')['tel']) { ?>
-                    <a href="tel:<?= get_field('contacts')['tel'] ?>" class="contacts__row">
-                        <div class="contacts__text tel"><?= get_field('contacts')['tel'] ?></div>
-                    </a>
-                <?php } ?>
-                <?php if (get_field('contacts')['address_2']) { ?>
-                    <div class="contacts__row">
-                        <div class="contacts__icon">
-                            <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">
-                        </div>
-                        <div class="contacts__text">
-                            <p class="contacts__metro"><?= get_field('contacts')['metro_2']; ?></p>
-                            <?= get_field('contacts')['address_2']; ?>
-                        </div>
-                    </div>
-                <?php } ?>
-                <?php if (get_field('contacts')['tel_2']) { ?>
-                    <a href="tel:<?= get_field('contacts')['tel_2'] ?>" class="contacts__row">
-                        <div class="contacts__text tel"><?= get_field('contacts')['tel_2'] ?></div>
-                    </a>
-                <?php } ?>
-                <?php if (get_field('contacts')['vk_link']) { ?>
-                    <a href="<?= get_field('contacts')['vk_link'] ?>" class="contacts__row" target="_blank">
-                        <div class="contacts__icon">
-                            <img src="/wp-content/themes/osipov/img/svg/vk-b.svg" alt="">
-                        </div>
-                        <div class="contacts__text">Вконтакте</div>
-                    </a>
-                <?php } ?>
-                <?php if (get_field('contacts')['main_instalink']) { ?>
-                    <a href="<?= get_field('contacts')['main_instalink'] ?>" class="contacts__row" target="_blank">
-                        <div class="contacts__icon">
-                            <img src="/wp-content/themes/osipov/img/svg/insta-b.svg" alt="">
-                        </div>
-                        <div class="contacts__text">Инстаграм</div>
-                    </a>
-                <?php } ?>
-                <div class="contacts__row">
-                    <div class="contacts__icon">
-                        <img src="/wp-content/themes/osipov/img/svg/watch.svg" alt="">
-                    </div>
-                    <div class="contacts__text"><?= get_field('contacts')['time'] ?></div>
-                </div>
-            </div>
-
-            <div class="map">
-                <iframe src="https://snazzymaps.com/embed/180114" width="100%" height="600px"
-                        style="border:none;"></iframe>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section class="contacts wow fadeIn">-->
+<!--    <div class="container">-->
+<!--        <div class="contacts__box">-->
+<!--            <div class="contacts__info">-->
+<!--                <h2>Контакты</h2>-->
+<!--                --><?php //if (get_field('contacts')['address_1']) { ?>
+<!--                    <div class="contacts__row">-->
+<!--                        <div class="contacts__icon">-->
+<!--                            <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="contacts__text">-->
+<!--                            <p class="contacts__metro">--><?//= get_field('contacts')['metro_1']; ?><!--</p>-->
+<!--                            --><?//= get_field('contacts')['address_1']; ?>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                --><?php //} ?>
+<!--                --><?php //if (get_field('contacts')['tel']) { ?>
+<!--                    <a href="tel:--><?//= get_field('contacts')['tel'] ?><!--" class="contacts__row">-->
+<!--                        <div class="contacts__text tel">--><?//= get_field('contacts')['tel'] ?><!--</div>-->
+<!--                    </a>-->
+<!--                --><?php //} ?>
+<!--                --><?php //if (get_field('contacts')['address_2']) { ?>
+<!--                    <div class="contacts__row">-->
+<!--                        <div class="contacts__icon">-->
+<!--                            <img src="/wp-content/themes/osipov/img/svg/pin.svg" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="contacts__text">-->
+<!--                            <p class="contacts__metro">--><?//= get_field('contacts')['metro_2']; ?><!--</p>-->
+<!--                            --><?//= get_field('contacts')['address_2']; ?>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                --><?php //} ?>
+<!--                --><?php //if (get_field('contacts')['tel_2']) { ?>
+<!--                    <a href="tel:--><?//= get_field('contacts')['tel_2'] ?><!--" class="contacts__row">-->
+<!--                        <div class="contacts__text tel">--><?//= get_field('contacts')['tel_2'] ?><!--</div>-->
+<!--                    </a>-->
+<!--                --><?php //} ?>
+<!--                --><?php //if (get_field('contacts')['vk_link']) { ?>
+<!--                    <a href="--><?//= get_field('contacts')['vk_link'] ?><!--" class="contacts__row" target="_blank">-->
+<!--                        <div class="contacts__icon">-->
+<!--                            <img src="/wp-content/themes/osipov/img/svg/vk-b.svg" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="contacts__text">Вконтакте</div>-->
+<!--                    </a>-->
+<!--                --><?php //} ?>
+<!--                --><?php //if (get_field('contacts')['main_instalink']) { ?>
+<!--                    <a href="--><?//= get_field('contacts')['main_instalink'] ?><!--" class="contacts__row" target="_blank">-->
+<!--                        <div class="contacts__icon">-->
+<!--                            <img src="/wp-content/themes/osipov/img/svg/insta-b.svg" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="contacts__text">Инстаграм</div>-->
+<!--                    </a>-->
+<!--                --><?php //} ?>
+<!--                <div class="contacts__row">-->
+<!--                    <div class="contacts__icon">-->
+<!--                        <img src="/wp-content/themes/osipov/img/svg/watch.svg" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="contacts__text">--><?//= get_field('contacts')['time'] ?><!--</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="map">-->
+<!--                <iframe src="https://snazzymaps.com/embed/180114" width="100%" height="600px"-->
+<!--                        style="border:none;"></iframe>-->
+<!--                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ZKSP_wxEXKYjVPDJWcg7AI60pgiIYbih&z=15" width="100%" height="600px"></iframe>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 
 <footer class="footer">
